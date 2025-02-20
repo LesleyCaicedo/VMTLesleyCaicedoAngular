@@ -1,0 +1,40 @@
+<div class="container">
+    <nav>
+        <div class="logo">
+            <h1>VMT_ANGULAR</h1>
+        </div>
+        <ul>
+            <li><a routerLink="/home">Inicio</a></li>
+            <li><a routerLink="/dashboard">Dashboard</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+
+        <!-- Usuario con Menú Desplegable -->
+        <div class="user-menu" (click)="toggleDropdown()">
+            <!-- <span class="username">Usuario</span> -->
+            <i class="material-icons">account_circle</i>
+            <div class="dropdown" *ngIf="dropdownOpen">
+                <a class="acc-opt" href="#">
+                   <i class="material-icons">person</i> Ver perfil</a>
+                <a class="acc-opt" href="#" (click)="logout()">
+                   <i class="material-icons">logout</i>  Cerrar sesión</a>
+            </div>
+        </div>
+
+        <div #mobileNav class="hamburger" (click)="toggleNav()">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+        </div>
+    </nav>
+
+    <div #navbar class="menubar">
+        <ul>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Servicio</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+    </div>
+</div>
