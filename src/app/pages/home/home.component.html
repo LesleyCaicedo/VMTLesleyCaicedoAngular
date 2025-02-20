@@ -1,26 +1,29 @@
 <div class="bienvenida-container">
-    <div class="bienvenida-header">
-      <h1>Bienvenido, {{ usuario.nombre }}!</h1>
-      <p>Usuario: {{ usuario.rol }} - {{ usuario.email }}</p>
+    <div class="left-side">
+        <div class="bienvenida-header">
+            <h1>Bienvenido, {{ usuario.nombre }}!</h1>
+            <p>Usuario: {{ usuario.rol }} - {{ usuario.email }}</p>
+          </div>
+        
+          <div class="bienvenida-content">
+            <!-- Mostrar total de turnos atendidos -->
+            <div *ngIf="usuario.rol === 'Gestor'">
+              <h3>Turnos atendidos hoy:</h3>
+              <p>{{ turnosAtendidosGestor }} turnos asignados por ti a los cajeros.</p>
+            </div>
+        
+            <div *ngIf="usuario.rol === 'Administrador'">
+              <h3>Turnos atendidos hoy:</h3>
+              <p>{{ turnosAtendidosAdmin }} turnos atendidos en total hoy.</p>
+            </div>
+        
+            <!-- Mostrar usuarios pendientes de aprobación (solo para Gestor) -->
+            <!-- <div *ngIf="usuario.rol === 'Gestor'">
+              <h3>Usuarios pendientes de aprobación:</h3>
+              <p>{{ usuariosPendientesAprobacion }} usuarios pendientes de aprobación.</p>
+            </div> -->
+          </div>
     </div>
-  
-    <div class="bienvenida-content">
-      <!-- Mostrar total de turnos atendidos -->
-      <div *ngIf="usuario.rol === 'Gestor'">
-        <h3>Turnos atendidos hoy:</h3>
-        <p>{{ turnosAtendidosGestor }} turnos asignados por ti a los cajeros.</p>
-      </div>
-  
-      <div *ngIf="usuario.rol === 'Administrador'">
-        <h3>Turnos atendidos hoy:</h3>
-        <p>{{ turnosAtendidosAdmin }} turnos atendidos en total hoy.</p>
-      </div>
-  
-      <!-- Mostrar usuarios pendientes de aprobación (solo para Gestor) -->
-      <!-- <div *ngIf="usuario.rol === 'Gestor'">
-        <h3>Usuarios pendientes de aprobación:</h3>
-        <p>{{ usuariosPendientesAprobacion }} usuarios pendientes de aprobación.</p>
-      </div> -->
-    </div>
+    <img src="assets/welcome-bg.avif" alt="">
   </div>
   

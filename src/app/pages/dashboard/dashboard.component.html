@@ -1,1 +1,53 @@
-<p>dashboard works!</p>
+<div class="dashboard-container">
+    <div class="dashboard-header">
+      <h1>Bienvenido al Dashboard, {{ usuario.nombre }}!</h1>
+    </div>
+  
+    <div class="dashboard-stats">
+      <!-- Indicadores de Usuarios -->
+      <div class="stat-card">
+        <h3>Usuarios Activos</h3>
+        <div class="stat-value">{{ usuariosActivos }}</div>
+      </div>
+  
+      <div class="stat-card">
+        <h3>Usuarios Inactivos</h3>
+        <div class="stat-value">{{ usuariosInactivos }}</div>
+      </div>
+  
+      <div class="stat-card">
+        <h3>Usuarios Bloqueados</h3>
+        <div class="stat-value">{{ usuariosBloqueados }}</div>
+      </div>
+    </div>
+  
+    <div class="dashboard-filters">
+      <h3>Filtros</h3>
+      <div class="filter-row">
+        <label for="fechaInicio">Fecha de Inicio:</label>
+        <input type="date" id="fechaInicio" [(ngModel)]="fechaInicio" />
+        <label for="fechaFin">Fecha de Fin:</label>
+        <input type="date" id="fechaFin" [(ngModel)]="fechaFin" />
+        <button (click)="filtrar()">Filtrar</button>
+      </div>
+    </div>
+  
+    <div class="dashboard-cajas">
+      <!-- Indicadores de Cajas y Cajeros -->
+      <div class="stat-card">
+        <h3>Cajas Activas</h3>
+        <div class="stat-value">{{ cajasActivas }}</div>
+      </div>
+  
+      <div class="stat-card">
+        <h3>Cajeros Activos</h3>
+        <div class="stat-value">{{ cajerosActivos }}</div>
+      </div>
+  
+      <div class="stat-card">
+        <h3>Gestores Activos</h3>
+        <div class="stat-value">{{ gestoresActivos }}</div>
+      </div>
+    </div>
+  </div>
+  

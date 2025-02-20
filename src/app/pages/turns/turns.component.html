@@ -1,0 +1,56 @@
+<div class="turnos-container">
+    <h1 class="page-title">Asignación de Turnos - Usuario Gestor</h1>
+  
+    <!-- Formulario para asignación de turno -->
+    <div class="turno-form">
+      <h2>Asignar Turno</h2>
+      <form (ngSubmit)="asignarTurno()">
+        <div class="form-group">
+          <label for="usuario">Usuario Cajero</label>
+          <select id="usuario" [(ngModel)]="turno.usuario" name="usuario" class="form-control">
+            <option value="Cajero 1">Cajero 1</option>
+            <option value="Cajero 2">Cajero 2</option>
+            <option value="Cajero 3">Cajero 3</option>
+          </select>
+        </div>
+  
+        <div class="form-group">
+          <label for="turno">Turno</label>
+          <select id="turno" [(ngModel)]="turno.turno" name="turno" class="form-control">
+            <option value="Mañana">Mañana</option>
+            <option value="Tarde">Tarde</option>
+            <option value="Noche">Noche</option>
+          </select>
+        </div>
+  
+        <div class="form-group">
+          <label for="fecha">Fecha</label>
+          <input type="date" id="fecha" [(ngModel)]="turno.fecha" name="fecha" class="form-control" />
+        </div>
+  
+        <button type="submit" class="btn btn-primary">Asignar Turno</button>
+      </form>
+    </div>
+  
+    <!-- Información de turnos asignados -->
+    <div class="assigned-turnos">
+      <h2>Turnos Asignados</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Usuario Cajero</th>
+            <th>Turno</th>
+            <th>Fecha</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let t of turnosAsignados">
+            <td>{{ t.usuario }}</td>
+            <td>{{ t.turno }}</td>
+            <td>{{ t.fecha | date: 'shortDate' }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

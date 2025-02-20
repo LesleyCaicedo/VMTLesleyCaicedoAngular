@@ -13,6 +13,8 @@ import { provideHttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { AdminComponent } from './pages/admin/admin.component';
+import { TurnsComponent } from './pages/turns/turns.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     LoginComponent,
     NavbarComponent,
     NotFoundComponent,
-    DashboardComponent
+    DashboardComponent,
+    AdminComponent,
+    TurnsComponent
   ],
   imports: [
     BrowserModule,

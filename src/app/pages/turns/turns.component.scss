@@ -1,0 +1,98 @@
+/* Contenedor principal de la página */
+.turnos-container {
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .page-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #333;
+  }
+  
+  /* Estilos de cada formulario */
+  .turno-form {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .turno-form h2 {
+    font-size: 1.5rem;
+    color: #007bff;
+    margin-bottom: 20px;
+  }
+  
+  /* Campos del formulario */
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    font-size: 1rem;
+    color: #495057;
+  }
+  
+  .form-group input,
+  .form-group select {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+  }
+  
+  .form-group select {
+    cursor: pointer;
+  }
+  
+  /* Botón de asignar turno */
+  button.btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button.btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Estilos para la tabla de turnos asignados */
+  .assigned-turnos {
+    margin-top: 40px;
+  }
+  
+  .assigned-turnos table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+  }
+  
+  .assigned-turnos th, .assigned-turnos td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ced4da;
+  }
+  
+  .assigned-turnos th {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .assigned-turnos tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .assigned-turnos tbody tr:hover {
+    background-color: #f1f1f1;
+  }
+  

@@ -1,26 +1,36 @@
 .bienvenida-container {
-    padding: 20px;
-  }
-  
-  .bienvenida-header {
-    margin-bottom: 20px;
-  }
-  
-  .bienvenida-header h1 {
-    font-size: 2rem;
-    color: #007bff;
-  }
-  
-  .bienvenida-header p {
-    font-size: 1rem;
-  }
-  
-  .bienvenida-content {
-    margin-top: 20px;
-  }
-  
-  .bienvenida-content h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-  }
-  
+  padding: 20px;
+  display: flex;
+  gap: 100px;
+}
+
+.bienvenida-container img {
+  width: 60%;
+}
+
+.left-side {
+  padding-top: 10%;
+  padding-left: 2%;
+}
+
+.bienvenida-header {
+  margin-bottom: 20px;
+}
+
+.bienvenida-header h1 {
+  font-size: 2rem;
+  color: #007bff;
+}
+
+.bienvenida-header p {
+  font-size: 1rem;
+}
+
+.bienvenida-content {
+  margin-top: 20px;
+}
+
+.bienvenida-content h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
