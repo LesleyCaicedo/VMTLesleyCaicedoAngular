@@ -25,8 +25,14 @@ export class LoginComponent {
       return;
     }
 
-    localStorage.setItem('user', 'true');
-    this.router.navigate(['/home']);
-    this.accountService.setIsLogued(true);
+    this.accountService.login(this.loginCredentials.username, this.loginCredentials.password).subscribe({
+      next: (data) => {
+        localStorage.setItem('user', JSON.stringify(data));
+        this.router.navigate(['/home']);
+        this.accountService.setIsLogued(true);
+      }, error: () => {
+        this.toast.error('Ocurrio un error, intente de nuevo.');
+      }
+    });
   }
 }

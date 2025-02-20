@@ -23,4 +23,11 @@ export class HomeComponent {
       if(!value) this.router.navigate(['/login']); 
     })
   }
+
+  getUser() {
+    let usuario:any = JSON.parse(localStorage.getItem('user')!);
+    return usuario;
+  }
+
+  
 }

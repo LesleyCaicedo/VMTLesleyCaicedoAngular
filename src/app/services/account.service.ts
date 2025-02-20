@@ -16,10 +16,8 @@ export class AccountService {
 
   constructor(private http: HttpClient) { }
 
-  login(credentials: any) {
-    return this.http.post(`${this.baseUrl}/login`, credentials).pipe(
-      catchError(this.handleError)
-    );
+  login(username: string, password: string) {
+    return this.http.get(`${this.baseUrl}/Login/login?username=${username}&password=${password}`);
   }
 
   getInfo(): boolean {
