@@ -27,5 +27,44 @@
       </form>
     </div>
 
+    <div class="admin-container">
+      <h1 class="page-title">Lista de Usuarios</h1>
+    
+      <!-- Tabla de Usuarios -->
+      <div class="user-table">
+        <h2>Usuarios Registrados</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Usuario</th>
+              <th>Correo</th>
+              <th>Rol</th>
+              <th>Acciones</th>
+              <th>Por aprobar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let usuario of listaUsuarios">
+              <td>{{ usuario.username }}</td>
+              <td>{{ usuario.email }}</td>
+              <td>
+                <span *ngIf="usuario.rolRolid === 1">Administrador</span>
+                <span *ngIf="usuario.rolRolid === 2">Gestor</span>
+                <span *ngIf="usuario.rolRolid === 3">Cajero</span>
+              </td>
+              <td>
+                <button class="btn btn-edit" (click)="EditarUsuario(usuario)">Editar</button>
+                <button class="btn btn-delete" (click)="EliminarUsuario(usuario)">Eliminar</button>
+              </td>
+              <td>
+                <button class="btn btn-edit" (click)="EditarUsuario(usuario)">Editar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+
   </div>
   
