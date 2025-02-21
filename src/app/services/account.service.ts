@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { BehaviorSubject, catchError, throwError } from 'rxjs';
+import { User } from '../models/user.model';
 
 
 @Injectable({
@@ -18,6 +19,10 @@ export class AccountService {
 
   login(username: string, password: string) {
     return this.http.get(`${this.baseUrl}/Login/login?username=${username}&password=${password}`);
+  }
+
+  CrearUser(modelo:User){
+    return this.http.post<User>(`${this.baseUrl}/Usuario/RegistroUsuario`,modelo);
   }
 
   getInfo(): boolean {

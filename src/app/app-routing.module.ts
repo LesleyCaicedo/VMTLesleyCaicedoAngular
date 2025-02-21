@@ -6,6 +6,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { TurnsComponent } from './pages/turns/turns.component';
+import { RegisterComponent } from './pages/register/register.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'admin', component: AdminComponent },
   { path: 'turns', component: TurnsComponent },
+  { path: 'register', component: RegisterComponent },
   // { path: 'nav', component: NavbarComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' }
 ];

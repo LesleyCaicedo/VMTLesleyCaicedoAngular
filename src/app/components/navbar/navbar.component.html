@@ -6,7 +6,10 @@
         <ul>
             <li><a routerLink="/home">Inicio</a></li>
             <li><a routerLink="/dashboard">Dashboard</a></li>
-            <li><a routerLink="/admin">Administración</a></li>
+            <ng-container *ngIf="GetRol() === 1">
+                <li><a routerLink="/admin">Administración</a></li>
+            </ng-container>
+            <li><a routerLink="/register">Registrar</a></li>
             <li><a routerLink="/turns">Turnos</a></li>
         </ul>
 
@@ -33,7 +36,10 @@
         <ul>
             <li><a routerLink="/home">Inicio</a></li>
             <li><a routerLink="/dashboard">Dashboard</a></li>
-            <li><a routerLink="/admin">Administración</a></li>
+            <ng-container *ngIf="GetRol() === 1">
+                <li><a routerLink="/admin">Administración</a></li>
+            </ng-container>
+            <li><a routerLink="/register">Registrar</a></li>
             <li><a routerLink="/turns">Turnos</a></li>
         </ul>
     </div>

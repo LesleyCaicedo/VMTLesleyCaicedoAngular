@@ -2,17 +2,17 @@
     <div class="left-side">
         <div class="bienvenida-header">
             <h1>Bienvenido, {{ getUser().username }}!</h1>
-            <p>Usuario: {{ usuario.rol }} - {{ getUser().email }}</p>
+            <p>Usuario: {{ usuario.rolRolid }} - {{ getUser().email }}</p>
           </div>
         
           <div class="bienvenida-content">
             <!-- Mostrar total de turnos atendidos -->
-            <div *ngIf="usuario.rol === 'Gestor'">
+            <div *ngIf="usuario.rolRolid === 2">
               <h3>Turnos atendidos hoy:</h3>
               <p>{{ turnosAtendidosGestor }} turnos asignados por ti a los cajeros.</p>
             </div>
         
-            <div *ngIf="usuario.rol === 'Administrador'">
+            <div *ngIf="usuario.rolRolid === 1">
               <h3>Turnos atendidos hoy:</h3>
               <p>{{ turnosAtendidosAdmin }} turnos atendidos en total hoy.</p>
             </div>

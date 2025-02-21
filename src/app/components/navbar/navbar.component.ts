@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AccountService } from '../../services/account.service';
 import { Router } from '@angular/router';
+import { User } from '../../models/user.model';
 
 @Component({
   selector: 'app-navbar',
@@ -11,7 +12,9 @@ import { Router } from '@angular/router';
 export class NavbarComponent {
   dropdownOpen = false;
 
-  constructor(private accountService: AccountService, private router:Router) { }
+  constructor(private accountService: AccountService, private router:Router) {
+
+   }
 
   toggleDropdown() {
     this.dropdownOpen = !this.dropdownOpen;
@@ -28,5 +31,9 @@ export class NavbarComponent {
     const mobileNav = document.querySelector('.hamburger');
     navbar?.classList.toggle('active');
     mobileNav?.classList.toggle('hamburger-active');
+  }
+
+  GetRol(): number {
+    return (JSON.parse(localStorage.getItem('user')!) as User).rolRolid!;
   }
 }

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { AccountService } from '../../services/account.service';
 import { Router } from '@angular/router';
+import { User } from '../../models/user.model';
 
 @Component({
   selector: 'app-admin',
@@ -28,6 +29,10 @@ export class AdminComponent {
   };
 
   constructor(private toastr: ToastrService, private accountService: AccountService, private router: Router) {
+    if(this.GetRol() !== 1) {
+      this.router.navigate(['/home']);
+      this.toastr.info('No tiene acceso a esta ruta');
+    }
     this.accountService.isLogged$.subscribe(value => {
       if (!value) this.router.navigate(['/login']);
     })
@@ -43,5 +48,9 @@ export class AdminComponent {
 
   actualizarGestor() {
     this.toastr.success(`Gestor ${this.gestor.nombre} actualizado a estado ${this.gestor.estado}`);
+  }
+
+  GetRol(): number {
+    return (JSON.parse(localStorage.getItem('user')!) as User).rolRolid!;
   }
 }

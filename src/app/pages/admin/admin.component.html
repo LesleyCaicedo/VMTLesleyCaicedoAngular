@@ -24,6 +24,25 @@
             <option value="Bloqueado">Bloqueado</option>
           </select>
         </div>
+        <div class="form-group">
+          <label for="usuarioNombre">Nombre de Usuario</label>
+          <input type="text" id="usuarioNombre" [(ngModel)]="usuario.nombre" name="usuarioNombre" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label for="usuarioRol">Rol</label>
+          <select id="usuarioRol" [(ngModel)]="usuario.rol" name="usuarioRol" class="form-control">
+            <option value="Cajero">Cajero</option>
+            <option value="Gestor">Gestor</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="usuarioEstado">Estado</label>
+          <select id="usuarioEstado" [(ngModel)]="usuario.estado" name="usuarioEstado" class="form-control">
+            <option value="Activo">Activo</option>
+            <option value="Inactivo">Inactivo</option>
+            <option value="Bloqueado">Bloqueado</option>
+          </select>
+        </div>
         <button type="submit" class="btn btn-primary">Actualizar Usuario</button>
       </form>
     </div>

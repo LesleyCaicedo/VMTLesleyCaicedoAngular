@@ -11,8 +11,8 @@ import { User } from '../../models/user.model';
 })
 export class HomeComponent {
   usuario: User = {
-    nombre: 'Juan',
-    rol: 'Gestor',
+    username: 'Juan',
+    rolRolid: 2,
     email: 'pepe@gmail.com'
   } as User;
   turnosAtendidosGestor = 12;

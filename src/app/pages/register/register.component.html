@@ -1,1 +1,31 @@
-<p>register works!</p>
+<div class="admin-container">
+    <h1 class="page-title">Interfaz Crear Usuarios</h1>
+  
+    <!-- Formulario de Actualización de Usuarios -->
+    <div class="user-form">
+      <h2>Nuevo Usuario</h2>
+      <form (ngSubmit)="CrearUsuario()">
+        <div class="form-group">
+          <label for="usuarioNombre">Usuario</label>
+          <input type="text" id="usuarioNombre" [(ngModel)]="nuevoUsuario.username" name="usuarioNombre" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label for="usuarioNombre">Correo</label>
+          <input type="text" id="usuarioNombre" [(ngModel)]="nuevoUsuario.email" name="usuarioNombre" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label for="usuarioRol">Rol</label>
+            <select id="usuarioRol" [(ngModel)]="nuevoUsuario.rolRolid" name="usuarioRol" class="form-control">
+              <ng-container *ngIf="GetRol() === 1">
+                <option value="1">Administrador</option>
+              </ng-container>
+              <option value="2">Gestor</option>
+              <option value="3">Cajero</option>
+            </select>
+          </div>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+      </form>
+    </div>
+
+  </div>
+  
