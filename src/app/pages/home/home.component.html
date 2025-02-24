@@ -1,18 +1,20 @@
 <div class="bienvenida-container">
     <div class="left-side">
         <div class="bienvenida-header">
-            <h1>Bienvenido, {{ getUser().username }}!</h1>
-            <p>Usuario: {{ usuario.rolRolid }} - {{ getUser().email }}</p>
+            <h1>Bienvenido, {{ getUser().username }}!</h1>  
+            <ng-container *ngIf="getUser().rolRolid === 1"><p>Usuario: Administrador - {{ getUser().email }}</p></ng-container>
+            <ng-container *ngIf="getUser().rolRolid === 2"><p>Usuario: Gestor - {{ getUser().email }}</p></ng-container>
+            <ng-container *ngIf="getUser().rolRolid === 3"><p>Usuario: Cajero - {{ getUser().email }}</p></ng-container>
           </div>
         
           <div class="bienvenida-content">
             <!-- Mostrar total de turnos atendidos -->
-            <div *ngIf="usuario.rolRolid === 2">
+            <div *ngIf="getUser().rolRolid === 2">
               <h3>Turnos atendidos hoy:</h3>
               <p>{{ turnosAtendidosGestor }} turnos asignados por ti a los cajeros.</p>
             </div>
         
-            <div *ngIf="usuario.rolRolid === 1">
+            <div *ngIf="getUser().rolRolid === 1">
               <h3>Turnos atendidos hoy:</h3>
               <p>{{ turnosAtendidosAdmin }} turnos atendidos en total hoy.</p>
             </div>

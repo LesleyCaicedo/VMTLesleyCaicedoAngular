@@ -1,70 +1,74 @@
 <div class="admin-container">
-    <h1 class="page-title">Interfaz Crear Usuarios</h1>
-  
-    <!-- Formulario de Actualización de Usuarios -->
-    <div class="user-form">
-      <h2>Nuevo Usuario</h2>
-      <form (ngSubmit)="CrearUsuario()">
-        <div class="form-group">
-          <label for="usuarioNombre">Usuario</label>
-          <input type="text" id="usuarioNombre" [(ngModel)]="nuevoUsuario.username" name="usuarioNombre" class="form-control" />
-        </div>
-        <div class="form-group">
-          <label for="usuarioNombre">Correo</label>
-          <input type="text" id="usuarioNombre" [(ngModel)]="nuevoUsuario.email" name="usuarioNombre" class="form-control" />
-        </div>
-        <div class="form-group">
-            <label for="usuarioRol">Rol</label>
-            <select id="usuarioRol" [(ngModel)]="nuevoUsuario.rolRolid" name="usuarioRol" class="form-control">
-              <ng-container *ngIf="GetRol() === 1">
-                <option value="1">Administrador</option>
-              </ng-container>
-              <option value="2">Gestor</option>
-              <option value="3">Cajero</option>
-            </select>
-          </div>
-        <button type="submit" class="btn btn-primary">Guardar</button>
-      </form>
-    </div>
+  <h1 class="page-title">Interfaz Crear Usuarios</h1>
 
-    <div class="admin-container">
-      <h1 class="page-title">Lista de Usuarios</h1>
-    
-      <!-- Tabla de Usuarios -->
-      <div class="user-table">
-        <h2>Usuarios Registrados</h2>
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Usuario</th>
-              <th>Correo</th>
-              <th>Rol</th>
-              <th>Acciones</th>
-              <th>Por aprobar</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let usuario of listaUsuarios">
-              <td>{{ usuario.username }}</td>
-              <td>{{ usuario.email }}</td>
-              <td>
-                <span *ngIf="usuario.rolRolid === 1">Administrador</span>
-                <span *ngIf="usuario.rolRolid === 2">Gestor</span>
-                <span *ngIf="usuario.rolRolid === 3">Cajero</span>
-              </td>
-              <td>
-                <button class="btn btn-edit" (click)="EditarUsuario(usuario)">Editar</button>
-                <button class="btn btn-delete" (click)="EliminarUsuario(usuario)">Eliminar</button>
-              </td>
-              <td>
-                <button class="btn btn-edit" (click)="EditarUsuario(usuario)">Editar</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+  <!-- Formulario de Actualización de Usuarios -->
+  <div class="user-form">
+    <h2>Nuevo Usuario</h2>
+    <form (ngSubmit)="CrearUsuario()">
+      <div class="form-group">
+        <label for="usuarioNombre">Usuario</label>
+        <input type="text" id="usuarioNombre" [(ngModel)]="nuevoUsuario.username" name="usuarioNombre" class="form-control" />
       </div>
-    </div>
-    
+      <div class="form-group">
+        <label for="usuarioNombre">Correo</label>
+        <input type="text" id="usuarioNombre" [(ngModel)]="nuevoUsuario.email" name="usuarioNombre" class="form-control" />
+      </div>
+      <div class="form-group">
+          <label for="usuarioRol">Rol</label>
+          <select id="usuarioRol" [(ngModel)]="nuevoUsuario.rolRolid" name="usuarioRol" class="form-control">
+            <ng-container *ngIf="GetRol() === 1">
+              <option value="1">Administrador</option>
+            </ng-container>
+            <option value="2">Gestor</option>
+            <option value="3">Cajero</option>
+          </select>
+        </div>
+      <button type="submit" class="btn btn-primary">Guardar</button>
+    </form>
+  </div>
 
+  <div class="admin-container">
+    <h1 class="page-title">Lista de Usuarios</h1>
+  
+    <!-- Tabla de Usuarios -->
+    <div class="user-table">
+      <h2>Usuarios Registrados</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Usuario</th>
+            <th>Correo</th>
+            <th>Rol</th>
+            <th>Creado por</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+            <ng-container *ngIf="GetRol() === 1">
+              <th>Por aprobar</th>
+            </ng-container>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let usuario of listaUsuarios">
+            <td>{{ usuario.userid }}</td>
+            <td>{{ usuario.username }}</td>
+            <td>{{ usuario.email }}</td>
+            <td>{{ usuario.rolNombre }}</td>
+            <td>{{ usuario.creadorNombre }}</td>
+            <td>{{ usuario.userstatusStatusid }}</td>
+            <td>
+              <button class="btn btn-edit" (click)="EditarUsuario(usuario)">Editar</button>
+            </td>
+            <ng-container *ngIf="GetRol() === 1">
+              <td>
+                <button class="btn btn-edit" (click)="EditarUsuario(usuario)">Editar</button>
+              </td>
+            </ng-container>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
   
+
+</div>

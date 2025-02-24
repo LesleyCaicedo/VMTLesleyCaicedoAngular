@@ -5,11 +5,12 @@
         </div>
         <ul>
             <li><a routerLink="/home">Inicio</a></li>
-            <li><a routerLink="/dashboard">Dashboard</a></li>
-            <ng-container *ngIf="GetRol() === 1">
-                <li><a routerLink="/admin">Administración</a></li>
+            <ng-container *ngIf="GetRol() === 1 || GetRol() === 2">
+                <li><a routerLink="/register">Usuarios</a></li>
             </ng-container>
-            <li><a routerLink="/register">Registrar</a></li>
+            <ng-container *ngIf="GetRol() === 1">
+                <li><a routerLink="/dashboard">Dashboard</a></li>
+            </ng-container>
             <li><a routerLink="/turns">Turnos</a></li>
         </ul>
 

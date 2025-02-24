@@ -10,11 +10,6 @@ import { User } from '../../models/user.model';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
-  usuario: User = {
-    username: 'Juan',
-    rolRolid: 2,
-    email: 'pepe@gmail.com'
-  } as User;
   turnosAtendidosGestor = 12;
   turnosAtendidosAdmin = 20;
 

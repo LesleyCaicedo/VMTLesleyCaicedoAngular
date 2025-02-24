@@ -15,6 +15,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { TurnsComponent } from './pages/turns/turns.component';
+import { ClientComponent } from './pages/client/client.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { TurnsComponent } from './pages/turns/turns.component';
     NotFoundComponent,
     DashboardComponent,
     AdminComponent,
-    TurnsComponent
+    TurnsComponent,
+    ClientComponent
   ],
   imports: [
     BrowserModule,

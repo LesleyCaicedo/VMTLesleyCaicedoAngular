@@ -3,6 +3,8 @@ import { ToastrService } from 'ngx-toastr';
 import { AccountService } from '../../services/account.service';
 import { Router } from '@angular/router';
 import { User } from '../../models/user.model';
+import { tablaUser } from '../../models/tablauser.model';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-register',
@@ -14,44 +16,7 @@ export class RegisterComponent {
 
   fecha = new Date();
 
-  listaUsuarios = [
-    {
-      id: 1,
-      username: 'admin123',
-      email: 'admin@example.com',
-      rolRolid: 1 // Administrador
-    },
-    {
-      id: 2,
-      username: 'gestor456',
-      email: 'gestor@example.com',
-      rolRolid: 2 // Gestor
-    },
-    {
-      id: 3,
-      username: 'cajero789',
-      email: 'cajero@example.com',
-      rolRolid: 3 // Cajero
-    },
-    {
-      id: 4,
-      username: 'adminPro',
-      email: 'adminpro@example.com',
-      rolRolid: 1 // Administrador
-    },
-    {
-      id: 5,
-      username: 'gestorPro',
-      email: 'gestorpro@example.com',
-      rolRolid: 2 // Gestor
-    },
-    {
-      id: 6,
-      username: 'cajeroPro',
-      email: 'cajeropro@example.com',
-      rolRolid: 3 // Cajero
-    }
-  ];
+  listaUsuarios: tablaUser[] = [];
 
   nuevoUsuario: User = {
     creationdate: this.fecha.toISOString(),
@@ -61,10 +26,26 @@ export class RegisterComponent {
     datespproval: this.GetRol() === 1 ? this.fecha.toISOString() : ''
   } as User;
 
-  constructor(private toastr: ToastrService, private accountService: AccountService, private router: Router) {
+  constructor(private toastr: ToastrService, private accountService: AccountService, private router: Router,
+    private userService: UserService
+  ) {
     this.accountService.isLogged$.subscribe(value => {
       if (!value) this.router.navigate(['/login']);
     })
+
+    this.ObtenerUsuarios();
+  }
+
+  ObtenerUsuarios() {
+    this.userService.tablaUsuario().subscribe({
+      next: (response: any) => {
+        this.listaUsuarios = response.data as tablaUser[]
+        this.toastr.success('Datos obtenidos')
+      }, 
+      error: () => {
+        this.toastr.error('Ocurrio un error, intente de nuevo')
+      }
+    });
   }
 
   CrearUsuario() {
@@ -90,8 +71,8 @@ export class RegisterComponent {
     console.log('Editar usuario:', usuario);
   }
 
-  EliminarUsuario(usuario: any) {
-    console.log('Eliminar usuario:', usuario);
-    this.listaUsuarios = this.listaUsuarios.filter(u => u.id !== usuario.id);
-  }
+  // EliminarUsuario(usuario: any) {
+  //   console.log('Eliminar usuario:', usuario);
+  //   this.listaUsuarios = this.listaUsuarios.filter(u => u.id !== usuario.id);
+  // }
 }
