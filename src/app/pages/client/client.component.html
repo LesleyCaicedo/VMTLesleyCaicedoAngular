@@ -1,1 +1,85 @@
-<p>client works!</p>
+<div class="admin-container">
+    <h1 class="page-title">Interfaz Crear Clientes</h1>
+  
+    <!-- Formulario de Actualización de Usuarios -->
+    <div class="user-form">
+      <h2>Nuevo Cliente</h2>
+      <form (ngSubmit)="CrearCliente()">
+        <div class="grid-container">
+          <div class="form-group">
+            <label for="clienteNombre">Nombre</label>
+            <input type="text" id="clienteNombre" [(ngModel)]="modelo.name" name="clienteNombre" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="clienteApellido">Apellido</label>
+            <input type="text" id="clienteApellido" [(ngModel)]="modelo.lastname" name="clienteApellido" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="clienteCedula">Cedula</label>
+            <input type="text" id="clienteCedula" [(ngModel)]="modelo.identification" name="clienteCedula" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="clienteCelular">Celular</label>
+            <input type="text" id="clienteCelular" [(ngModel)]="modelo.phonenumber" name="clienteCelular" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="clienteEmail">Correo</label>
+            <input type="text" id="clienteEmail" [(ngModel)]="modelo.email" name="clienteEmail" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="clienteNombre">Direccion</label>
+            <input type="text" id="clienteNombre" [(ngModel)]="modelo.address" name="clienteNombre" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="clienteApellido">Referencia</label>
+            <input type="text" id="clienteApellido" [(ngModel)]="modelo.referenceaddress" name="clienteApellido" class="form-control" />
+          </div>
+        </div>  
+        <button type="submit" class="btn btn-primary">Guardar</button>
+      </form>
+    </div>
+  
+    <div class="admin-container">
+      <h1 class="page-title">Lista de Clientes</h1>
+    
+      <!-- Tabla de Usuarios 
+      <div class="user-table">
+        <h2>Usuarios Registrados</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Usuario</th>
+              <th>Correo</th>
+              <th>Rol</th>
+              <th>Creado por</th>
+              <th>Estado</th>
+              <th>Acciones</th>
+              <ng-container *ngIf="GetRol() === 1">
+                <th>Por aprobar</th>
+              </ng-container>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let usuario of listaUsuarios">
+              <td>{{ usuario.userid }}</td>
+              <td>{{ usuario.username }}</td>
+              <td>{{ usuario.email }}</td>
+              <td>{{ usuario.rolNombre }}</td>
+              <td>{{ usuario.creadorNombre }}</td>
+              <td>{{ usuario.userstatusStatusid }}</td>
+              <td>
+                <button class="btn btn-edit" (click)="EditarUsuario(usuario)">Editar</button>
+              </td>
+              <td>
+                <button class="btn btn-edit" (click)="EditarUsuario(usuario)">Editar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    -->
+  
+  </div>
+  

@@ -9,6 +9,7 @@ import { User } from '../models/user.model';
   providedIn: 'root'
 })
 export class AccountService {
+
   private isLogged = new BehaviorSubject<boolean>(this.getInfo());
   isLogged$ = this.isLogged.asObservable();
   
